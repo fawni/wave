@@ -1,0 +1,7 @@
+{
+	"csrftoken": "",
+	"sessionid": "",
+	"output": "results/available.txt",
+	"proxies": "proxy.txt",
+	"timeout": 3
+}
