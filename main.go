@@ -52,10 +52,10 @@ func main() {
 	}
 	names := read(os.Args[1])
 
-	checkNames(res, names)
+	check(res, names)
 }
 
-func checkNames(res *os.File, names []string) {
+func check(res *os.File, names []string) {
 	for _, name := range names {
 		_, err := strconv.Atoi(string(name[0]))
 		if len(name) > 2 && len(name) <= 15 && err != nil {
