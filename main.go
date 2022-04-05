@@ -33,21 +33,21 @@ var cfg Config
 func main() {
 	configFile, err := os.ReadFile("config.json")
 	if err != nil {
-		fmt.Println("failed to read config.json:", aurora.Red(err))
+		fmt.Println(aurora.Red("failed to read config.json: " + err.Error()))
 		os.Exit(1)
 	}
 	if err := json.Unmarshal(configFile, &cfg); err != nil {
-		fmt.Println("failed to unmarshal config.json:", aurora.Red(err))
+		fmt.Println(aurora.Red("failed to unmarshal config.json: " + err.Error()))
 		os.Exit(1)
 	}
 
 	if err := os.MkdirAll(filepath.Dir(cfg.Output), 0755); err != nil {
-		fmt.Println("failed to create results directory:", aurora.Red(err))
+		fmt.Println(aurora.Red("failed to create results directory: " + err.Error()))
 		os.Exit(1)
 	}
 	res, err := os.Create(cfg.Output)
 	if err != nil {
-		fmt.Println("failed to create results file:", aurora.Red(err))
+		fmt.Println(aurora.Red("failed to create results file: " + err.Error()))
 		os.Exit(1)
 	}
 	names := read(os.Args[1])
@@ -81,7 +81,7 @@ func request(f *os.File, username string) {
 	var data Response
 	err := json.Unmarshal([]byte(body), &data)
 	if err != nil {
-		fmt.Println("failed to unmarshal response data:", aurora.Red(err))
+		fmt.Println(aurora.Red("failed to unmarshal response data: " + err.Error()))
 	}
 
 	switch data.Username.Valid {
@@ -98,7 +98,7 @@ func request(f *os.File, username string) {
 func read(path string) []string {
 	file, err := os.Open(path)
 	if err != nil {
-		fmt.Println("failed to open file:", aurora.Red(err))
+		fmt.Println(aurora.Red("failed to open file: " + err.Error()))
 		os.Exit(1)
 	}
 	defer file.Close()
