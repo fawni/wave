@@ -75,7 +75,7 @@ func request(f *os.File, username string) {
 		fmt.Println("http request failed: ", aurora.Red(errs))
 	}
 	if res.StatusCode == 403 {
-		fmt.Println("csrftoken/sessionid invalid")
+		fmt.Println(aurora.Red("csrftoken/sessionid invalid"))
 		os.Exit(1)
 	}
 	var data Response
