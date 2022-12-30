@@ -3,7 +3,7 @@
 ## usage
 
 ```sh
-git clone https://github.com/x6r/wave.git
+git clone https://github.com/fawni/wave.git
 cd wave
 go build
 mv config.json.example config.json

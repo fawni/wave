@@ -4,3 +4,4 @@ results/
 proxies/
 config.json
 *.py
+*.exe

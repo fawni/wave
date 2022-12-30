@@ -1,4 +1,4 @@
-module github.com/x6r/wave
+module github.com/fawni/wave
 
 go 1.16
 
